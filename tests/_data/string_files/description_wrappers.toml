@@ -93,3 +93,31 @@ expected = """
 
     .. note::
     This is a note in the reST dialog."""
+
+[do_wrap_description_with_fenced_code_block]
+instring = """
+    Description here.
+
+    ```python
+    print("hello world")
+    ```
+    """
+expected = """    Description here.
+
+    ```python
+    print("hello world")
+    ```"""
+
+[do_wrap_description_with_fenced_code_block_no_indent]
+instring = """
+Description here.
+
+```python
+print("hello world")
+```
+"""
+expected = """Description here.
+
+```python
+print("hello world")
+```"""

@@ -1244,3 +1244,126 @@ expected='''"""A."""
 
 pass
 '''
+
+[fenced_code_block_module]
+source='''"""Module summary.
+
+Description here.
+
+```python
+print("hello world")
+```
+"""
+'''
+expected='''"""Module summary.
+
+Description here.
+
+```python
+print("hello world")
+```
+"""
+'''
+
+[fenced_code_block_class]
+source='''class Foo:
+    """Class summary.
+
+    Description here.
+
+    ```python
+    print("hello world")
+    ```
+    """
+    pass
+'''
+expected='''class Foo:
+    """Class summary.
+
+    Description here.
+
+    ```python
+    print("hello world")
+    ```
+    """
+
+    pass
+'''
+
+[fenced_code_block_function]
+source='''def foo():
+    """Function summary.
+
+    Description here.
+
+    ```python
+    print("hello world")
+    ```
+    """
+    pass
+'''
+expected='''def foo():
+    """Function summary.
+
+    Description here.
+
+    ```python
+    print("hello world")
+    ```
+    """
+    pass
+'''
+
+[fenced_code_block_method]
+source='''class Foo:
+    def bar(self):
+        """Method summary.
+
+        Description here.
+
+        ```python
+        print("hello world")
+        ```
+        """
+        pass
+'''
+expected='''class Foo:
+    def bar(self):
+        """Method summary.
+
+        Description here.
+
+        ```python
+        print("hello world")
+        ```
+        """
+        pass
+'''
+
+[fenced_code_block_nested_method]
+source='''class Outer:
+    class Inner:
+        def method(self):
+            """Nested method summary.
+
+            Description here.
+
+            ```python
+            print("hello world")
+            ```
+            """
+            pass
+'''
+expected='''class Outer:
+    class Inner:
+        def method(self):
+            """Nested method summary.
+
+            Description here.
+
+            ```python
+            print("hello world")
+            ```
+            """
+            pass
+'''

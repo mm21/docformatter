@@ -105,6 +105,23 @@ def is_probably_beginning_of_sentence(line: str) -> Union[Match[str], None, bool
     return is_beginning_of_sentence and not is_pydoc_ref
 
 
+def is_fenced_code_block(text: str) -> bool:
+    """Return True if the text contains a fenced code block.
+
+    Parameters
+    ----------
+    text : str
+        The text to check for fenced code block patterns.
+
+    Returns
+    -------
+    bool
+        True if the text contains a triple-backtick fenced code block,
+        False otherwise.
+    """
+    return any(line.strip().startswith("```") for line in text.splitlines())
+
+
 def is_some_sort_of_code(text: str) -> bool:
     """Return True if the text looks like code.
 

@@ -75,6 +75,7 @@ def test_do_close_description(test_key, text_index):
         ("do_wrap_description_with_heuristic_list", False),
         ("do_wrap_description_with_heuristic_list_force_wrap", True),
         ("do_wrap_description_with_directive", False),
+        ("do_wrap_description_with_fenced_code_block", False),
     ],
 )
 def test_do_wrap_description(test_key, force_wrap):
@@ -83,3 +84,13 @@ def test_do_wrap_description(test_key, force_wrap):
 
     result = do_wrap_description(source, "    ", 72, force_wrap, False, "", "sphinx")
     assert result == expected, f"\nFailed {test_key}\nExpected {expected}\nGot {result}"
+
+
+@pytest.mark.integration
+@pytest.mark.order(2)
+def test_do_wrap_description_with_fenced_code_block_no_indent():
+    source = TEST_STRINGS["do_wrap_description_with_fenced_code_block_no_indent"]["instring"]
+    expected = TEST_STRINGS["do_wrap_description_with_fenced_code_block_no_indent"]["expected"]
+
+    result = do_wrap_description(source, "", 72, False, False, "", "sphinx")
+    assert result == expected, f"\nExpected {expected}\nGot {result}"
