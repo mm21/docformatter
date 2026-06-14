@@ -74,7 +74,7 @@ def do_find_docstring_blocks(tokens: list[TokenInfo]) -> list[tuple[int, int, st
                 or token.string.startswith("u'''")
                 or token.string.startswith("U'''")
             )
-            or " = " in token.line.splitlines()[0]
+            or " = " in token.line
         ):
             continue
 
