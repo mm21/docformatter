@@ -34,13 +34,12 @@ import sys
 from configparser import ConfigParser
 from typing import Dict, Sequence, Union
 
-with contextlib.suppress(ImportError):
-    if sys.version_info >= (3, 11):
-        # Standard Library Imports
-        import tomllib
-    else:
-        # Third Party Imports
-        import tomli as tomllib
+if sys.version_info >= (3, 11):
+    # Standard Library Imports
+    import tomllib
+else:
+    # Third Party Imports
+    import tomli as tomllib
 
 # docformatter Package Imports
 from docformatter import __pkginfo__
@@ -345,7 +344,7 @@ class Configurater:
 
         result = config.get("tool", {}).get("docformatter", None)
         if result is not None:
-            self.flargs = {
+            self.flargs = {  # type: ignore
                 k: v if isinstance(v, list) else str(v) for k, v in result.items()  # type: ignore
             }
 

@@ -620,7 +620,7 @@ class Formatter:
         if encoding:
             formatted_source = formatted_source.encode(encoding)
 
-        self.stdout.write(formatted_source)
+        self.stdout.write(formatted_source)  # type: ignore
 
     def do_format_files(self) -> Union[int, None]:
         """Format multiple files.
